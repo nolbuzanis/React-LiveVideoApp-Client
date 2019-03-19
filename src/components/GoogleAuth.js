@@ -29,13 +29,13 @@ class GoogleAuth extends React.Component {
     } else if (this.state.isSignedIn) {
       return (
         <button className='ui red google button' onClick={this.auth.signOut}>
-          <i className='google icon'>Sign Out</i>
+          <i className='google icon' /> Sign Out
         </button>
       );
     } else {
       return (
         <button className='ui red google button' onClick={this.auth.signIn}>
-          <i className='google icon'>Sign In with Google</i>
+          <i className='google icon' /> Sign In with Google
         </button>
       );
     }
