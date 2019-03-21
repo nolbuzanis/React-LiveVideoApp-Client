@@ -6,8 +6,8 @@ class StreamCreate extends React.Component {
     console.log(formProps);
 
     return (
-      <div>
-        <label>{formProps.input.name}</label>
+      <div className='field'>
+        <label>{formProps.label}</label>
         <input {...formProps.input} />
       </div>
     );
@@ -15,9 +15,13 @@ class StreamCreate extends React.Component {
 
   render() {
     return (
-      <form>
-        <Field name='title' component={this.renderInput} />
-        <Field name='description' component={this.renderInput} />
+      <form className='ui form'>
+        <Field name='title' component={this.renderInput} label='Enter Title' />
+        <Field
+          name='description'
+          component={this.renderInput}
+          label='Enter Description'
+        />
       </form>
     );
   }
