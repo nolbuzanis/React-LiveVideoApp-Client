@@ -3,10 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
   renderInput = formProps => {
+    console.log(formProps.meta);
     return (
       <div className='field'>
         <label>{formProps.label}</label>
         <input {...formProps.input} />
+        <div>{formProps.meta.error}</div>
       </div>
     );
   };
@@ -16,7 +18,6 @@ class StreamCreate extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <form
         className='ui form'
@@ -34,4 +35,19 @@ class StreamCreate extends React.Component {
   }
 }
 
-export default reduxForm({ form: 'streamCreate' })(StreamCreate);
+const validate = formValues => {
+  var errors = {};
+  if (!formValues.title) {
+    // User did not enter title
+    errors.title = 'Required';
+  }
+  if (!formValues.description) {
+    errors.description = 'Required';
+  }
+  return errors;
+};
+
+export default reduxForm({
+  form: 'streamCreate',
+  validate: validate
+})(StreamCreate);
