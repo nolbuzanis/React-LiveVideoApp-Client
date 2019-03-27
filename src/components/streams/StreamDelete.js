@@ -20,13 +20,12 @@ class StreamDelete extends React.Component {
   render() {
     const actions = (
       <div>
-        <Link
+        <button
           onClick={() => this.props.deleteStream(this.props.match.params.id)}
-          to='/'
           className='ui button negative'
         >
           Delete
-        </Link>
+        </button>
         <Link to='/' className='ui button'>
           Cancel
         </Link>
